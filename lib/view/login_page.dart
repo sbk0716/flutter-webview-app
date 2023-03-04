@@ -2,10 +2,10 @@ import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webview_app/provider.dart';
-import 'package:webview_app/view/web_page.dart';
+import 'package:webview_app/view/input_page.dart';
 
-class InputPage extends ConsumerWidget {
-  const InputPage({Key? key}) : super(key: key);
+class LoginPage extends ConsumerWidget {
+  const LoginPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Create a controller for an editable text field.
@@ -17,7 +17,7 @@ class InputPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Input Page'),
+        title: const Text('Login Page'),
         actions: [
           IconButton(
             onPressed: () {
@@ -46,17 +46,10 @@ class InputPage extends ConsumerWidget {
             const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
-                if (_provider.state == "") {
-                  showOkAlertDialog(
-                    context: context,
-                    title: 'Enter URL!!',
-                  );
-                } else {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const WebPage()));
-                }
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const InputPage()));
               },
-              child: const Text('OPEN WEB'),
+              child: const Text('Login'),
             ),
           ],
         ),
