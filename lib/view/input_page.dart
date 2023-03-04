@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webview_app/provider.dart';
 import 'package:webview_app/view/web_page.dart';
+import 'package:webview_app/view/login_page.dart';
 
+// Widget for InputPage
 class InputPage extends ConsumerWidget {
   const InputPage({Key? key}) : super(key: key);
   @override
@@ -25,6 +27,20 @@ class InputPage extends ConsumerWidget {
               _controller.text = "";
             },
             icon: const Icon(Icons.autorenew),
+          ),
+          IconButton(
+            onPressed: () async {
+              // ====================
+              // @todo Execute logout method
+              // await FirebaseAuth.instance.signOut();
+              // ====================
+              await Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) {
+                  return const LoginPage();
+                }),
+              );
+            },
+            icon: const Icon(Icons.logout),
           ),
         ],
       ),

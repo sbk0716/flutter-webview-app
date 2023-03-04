@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webview_app/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+// Widget for WebPage
 class WebPage extends StatefulWidget {
   const WebPage({Key? key}) : super(key: key);
   @override
@@ -10,7 +11,9 @@ class WebPage extends StatefulWidget {
 }
 
 class _WebPageState extends State<WebPage> {
-  late WebViewController controller; //WebViewを管理するコントローラー
+  // Controller that manages the WebView.
+  late WebViewController controller;
+  // progress for LinearProgressIndicator
   double progress = 0;
   @override
   Widget build(BuildContext context) {
@@ -20,15 +23,18 @@ class _WebPageState extends State<WebPage> {
         actions: [
           IconButton(
             onPressed: () async {
+              // Check whether there's a back history item.
               if (await controller.canGoBack()) {
-                controller.goBack(); //前のページに戻る
+                // Go back in the history of this WebView.
+                controller.goBack();
               }
             },
             icon: const Icon(Icons.arrow_back),
           ),
           IconButton(
             onPressed: () {
-              controller.reload(); //再描画する
+              // Reload the current URL.
+              controller.reload();
             },
             icon: const Icon(Icons.refresh),
           ),
@@ -49,7 +55,8 @@ class _WebPageState extends State<WebPage> {
                   javascriptMode: JavascriptMode.unrestricted,
                   initialUrl: _provider.state,
                   onWebViewCreated: (controller) {
-                    this.controller = controller; //このWebViewを管理する
+                    // Manage this WebView
+                    this.controller = controller;
                   },
                   onProgress: (progress) {
                     setState(() {
