@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webview_app/provider.dart';
 import 'package:webview_app/view/web_page.dart';
+import 'package:webview_app/view/login_page.dart';
 
+// Widget for InputPage
 class InputPage extends ConsumerWidget {
   const InputPage({Key? key}) : super(key: key);
   @override
@@ -25,6 +27,21 @@ class InputPage extends ConsumerWidget {
               _controller.text = "";
             },
             icon: const Icon(Icons.autorenew),
+          ),
+          IconButton(
+            onPressed: () async {
+              // ログアウト処理
+              // 内部で保持しているログイン情報等が初期化される
+              // （現時点ではログアウト時はこの処理を呼び出せばOKと、思うぐらいで大丈夫です）
+              // await FirebaseAuth.instance.signOut();
+              // ログイン画面に遷移＋チャット画面を破棄
+              await Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) {
+                  return const LoginPage();
+                }),
+              );
+            },
+            icon: const Icon(Icons.logout),
           ),
         ],
       ),

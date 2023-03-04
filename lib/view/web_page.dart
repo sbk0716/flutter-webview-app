@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webview_app/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+// Widget for WebPage
 class WebPage extends StatefulWidget {
   const WebPage({Key? key}) : super(key: key);
   @override
