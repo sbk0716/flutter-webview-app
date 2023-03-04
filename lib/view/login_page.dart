@@ -9,9 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // メッセージ表示用
   String infoText = '';
-  // 入力したメールアドレス・パスワード
   String email = '';
   String password = '';
 
@@ -24,18 +22,18 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // メールアドレス入力
+              // for email
               TextFormField(
-                decoration: const InputDecoration(labelText: 'メールアドレス'),
+                decoration: const InputDecoration(labelText: 'Email'),
                 onChanged: (String value) {
                   setState(() {
                     email = value;
                   });
                 },
               ),
-              // パスワード入力
+              // for password
               TextFormField(
-                decoration: const InputDecoration(labelText: 'パスワード'),
+                decoration: const InputDecoration(labelText: 'Password'),
                 obscureText: true,
                 onChanged: (String value) {
                   setState(() {
@@ -48,29 +46,33 @@ class _LoginPageState extends State<LoginPage> {
                 // メッセージ表示
                 child: Text(infoText),
               ),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 // Login Button
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
                     try {
-                      // メール/パスワードでログイン
+
+                      // ====================
+                      // @todo Execute login method
                       // final FirebaseAuth auth = FirebaseAuth.instance;
                       // await auth.signInWithEmailAndPassword(
                       //   email: email,
                       //   password: password,
-                      // );
-                      // ログインに成功した場合
+                      // )
+                      // ====================
+
+                      // If the login succeeds
                       await Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) {
                           return const InputPage();
                         }),
                       );
                     } catch (e) {
-                      // ログインに失敗した場合
+                      // If login fails
                       setState(() {
-                        infoText = "ログインに失敗しました：${e.toString()}";
+                        infoText = "Login failed.：${e.toString()}";
                       });
                     }
                   },
