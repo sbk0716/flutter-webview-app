@@ -31,6 +31,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.3.0
+  # ========================================
+  # @todo
+  # webview_flutter: Migrating from 3.0 to 4.0
+  # FYI: https://github.com/flutter/packages/tree/main/packages/webview_flutter/webview_flutter#migrating-from-30-to-40
+  # ========================================
   webview_flutter: <4.0.0
 
 dev_dependencies:
