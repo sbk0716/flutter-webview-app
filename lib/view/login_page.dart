@@ -53,7 +53,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text('Login'),
                   onPressed: () async {
                     try {
-
                       // ====================
                       // @todo Execute login method
                       // final FirebaseAuth auth = FirebaseAuth.instance;
@@ -62,7 +61,6 @@ class _LoginPageState extends State<LoginPage> {
                       //   password: password,
                       // )
                       // ====================
-
                       // If the login succeeds
                       await Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) {
