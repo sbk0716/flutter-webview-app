@@ -43,7 +43,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Container(
                 padding: const EdgeInsets.all(8),
-                // メッセージ表示
                 child: Text(infoText),
               ),
               SizedBox(
